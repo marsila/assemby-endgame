@@ -139,3 +139,62 @@ main {
   font-weight: 400;
   color: #f9f4da;
 }
+
+.lang-list{
+  display: flex;
+  flex-wrap: wrap;
+  width:352px;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 1.5px;
+  border:1px solid red;
+}
+
+.lang-btn{
+  color: #f9f4da;
+  border-radius: 3px;
+  padding: 4px;
+  /* height: 25px; */
+  font-family:Hanken Grotesk;
+  font-weight: 600;
+}
+
+#html{
+  background-color: #E2680F;
+}
+
+#css{
+  background-color: #328AF1;
+}
+
+#javascript{
+  background-color: #F4EB13;
+  color: #282726;
+}
+
+#react{
+  background-color: #2ED3E9;
+}
+
+#typescript{
+  background-color: #298EC6;
+}
+
+#nodejs{
+ background-color: #599137;
+}
+
+#python{
+  background-color:  #FFD742; 
+ color: #282726;
+
+}
+
+#ruby{
+  background-color: #D02B2B;
+}
+
+#assembly{
+  background-color: #2D519F;
+}
