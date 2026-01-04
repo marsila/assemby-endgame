@@ -1,0 +1,20 @@
+export default function Keyboard(){
+    return(
+        <>
+        <div className="keyboard">
+            <button id="a">A</button><button id="b">B</button><button id="c">C</button>
+            <button id="d">D</button><button id="e">E</button><button id="f">F</button>
+            <button id="g">G</button><button id="h">H</button><button id="i">I</button>
+            <button id="j">J</button><button id="k">K</button><button id="l">L</button>
+            <button id="m">M</button><button id="n">N</button><button id="o">O</button>
+            <button id="p ">P</button><button id="q">Q</button><button id="r">R</button>
+            <button id="s">S</button><button id="t">T</button><button id="u">U</button>
+            <button id="v">V</button><button id="w">W</button><button id="x">X</button>
+            <button id="y">Y</button><button id="z">Z</button>
+        </div>
+        <div className="new-game">
+            <button id="new-game">New Game</button>
+        </div>
+        </>
+    )
+}
