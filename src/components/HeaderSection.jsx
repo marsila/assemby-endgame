@@ -1,5 +1,8 @@
-export function HeaderSection() {
-    
+import StatusSection from "./StatusSection";
+
+export function HeaderSection(props) {
+  const { winGame, endGame } = props;
+  
   return (
     <div className="header-section">
       <div className="headline">
@@ -9,6 +12,11 @@ export function HeaderSection() {
           from Assembly!
         </p>
       </div>
+      {endGame && (
+        <StatusSection 
+          winGame={winGame}
+        />
+      )}
     </div>
   );
 }

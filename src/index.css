@@ -51,7 +51,7 @@ h6 {
 }
 
 body {
-  font-family:  Times, serif,Hanken Grotesk, system-ui, -apple-system, BlinkMacSystemFont,
+  font-family:  'Hanken Grotesk', system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased; /* Makes fonts look "crisper" on Mac */
@@ -106,7 +106,6 @@ main {
 }
 
 .header-section {
-  border: 1px solid red;
   width: 352px;
   height: 144px;
   align-items: center;
@@ -269,12 +268,9 @@ padding-left: 12px;
 border-radius: 4px;
 border: 1px solid #D7D7D7;
 background-color: #11B5E5;
-font-family: Hanken Grotesk;
 font-weight: 600;
 font-style: SemiBold;
 font-size: 18px;
 line-height: 100%;
 text-align: center;
-
-
 }
