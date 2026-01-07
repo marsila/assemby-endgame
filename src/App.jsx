@@ -14,29 +14,48 @@ function App() {
     "TEMPLATE", "HARDWARE", "INTERNET", "DEBUGGER"
   ];
   
+  const [guessedLetters, setGuessedLetters]=useState([]);
+  
   function generateWord(words){
     const randomIndex = Math.floor(Math.random()* words.length);
     return words[randomIndex]
   }
-  const[theWord, setTheWord] = useState(()=> generateWord(words));
+  const[currentWord, setCurrentWord] = useState(()=> generateWord(words));
   //console.log(theWord);
 
-  const endGame = true;
-  const winGame = true;
-  const HandleLetterClick = (e) => {
-    console.log(e.current.value);
-    
+  const endGame = false;
+  const winGame = false;
+  const handleLetterClick = (e) => {
+    console.log(e.currentTarget.value);
+    const letter = e.currentTarget.value;
+    if(currentWord.includes(letter)){
+      console.log(letter);
+      setGuessedLetters(oldLetters => [...oldLetters,letter])
+      console.log(`gussedLetters = ${guessedLetters}`);
+      
+      
+    }else{
+      console.log('not today!');
+      
+    }  
+      
   }
     
   return (
     <main>
      <HeaderSection
-        endGame={endGame}
-        winGame={winGame}
+      endGame={endGame}
+      winGame={winGame}
      />     
      <LanguagesList/>
-     <WordDisply/>
-     <Keyboard/>
+     <WordDisply
+      currentWord ={currentWord}
+      guessedLetters={guessedLetters}
+     />
+     <Keyboard
+      endGame={endGame}
+      handleLetterClick ={handleLetterClick}
+     />
     </main>
   )
 }

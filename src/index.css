@@ -147,7 +147,6 @@ main {
   align-content: center;
   justify-content: center;
   gap: 3px;
-  border: 1px solid red;
 }
 
 .lang-btn {
@@ -229,7 +228,6 @@ main {
   gap: 12px;
   max-width: 480;
   padding-top: 16px;
-  border: 1px solid blue;
 }
 
 .keyboard button{
