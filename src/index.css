@@ -251,6 +251,15 @@ main {
   text-align: center;
   color: #1E1E1E;
 }
+.key-default { 
+  background-color: #fcba29; 
+}
+.key-correct { 
+  background-color: #2ecc71 !important;
+}
+.key-wrong { 
+  background-color: #e74c3c !important; 
+}
 
 .new-game{
  margin: 20px; 

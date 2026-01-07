@@ -15,24 +15,27 @@ function App() {
   ];
   
   const [guessedLetters, setGuessedLetters]=useState([]);
-  
   function generateWord(words){
     const randomIndex = Math.floor(Math.random()* words.length);
     return words[randomIndex]
   }
   const[currentWord, setCurrentWord] = useState(()=> generateWord(words));
-  //console.log(theWord);
 
   const endGame = false;
   const winGame = false;
   const handleLetterClick = (e) => {
     console.log(e.currentTarget.value);
     const letter = e.currentTarget.value;
-    if(currentWord.includes(letter)){
+    
+    if(letter && !guessedLetters.includes(letter)){
       console.log(letter);
-      setGuessedLetters(oldLetters => [...oldLetters,letter])
+      setGuessedLetters(prev => [...prev,letter]);
       console.log(`gussedLetters = ${guessedLetters}`);
       
+      
+    }
+    if(currentWord.includes(letter)){
+      console.log('you are right! ');
       
     }else{
       console.log('not today!');
@@ -55,6 +58,8 @@ function App() {
      <Keyboard
       endGame={endGame}
       handleLetterClick ={handleLetterClick}
+      guessedLetters={guessedLetters}
+      currentWord={currentWord}
      />
     </main>
   )
