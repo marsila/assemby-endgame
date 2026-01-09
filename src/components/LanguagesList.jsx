@@ -1,16 +1,23 @@
 
-export default function LanguagesList() {
+export default function LanguagesList(props) {
+    const {languagesList,wrongGuessCount } = props;
+    
+
     return(
         <div className="lang-list">
-            <button className="lang-btn" id="html">HTML</button>
-            <button className="lang-btn" id="css">CSS</button>
-            <button className="lang-btn" id="javascript">Javascript</button>
-            <button className="lang-btn" id="react">React</button>
-            <button className="lang-btn" id="typescript">Typescript</button>
-            <button className="lang-btn" id="nodejs">Node.js</button>
-            <button className="lang-btn" id="python">Python</button>
-            <button className="lang-btn" id="ruby">Ruby</button>
-            <button className="lang-btn" id="assembly">Assembly</button>
+            {languagesList.map((lang,index)=> {
+                const isDeleted = index < wrongGuessCount;
+                return(
+                 <span 
+                    className={`lang-btn ${isDeleted? "deleted-lang":""} `}
+                    id={lang.replace('.','').toLowerCase()}
+                    key={index}
+                    
+                 >
+                    {lang}
+                 </span>   
+                )
+            })}
         </div>
     )
 }

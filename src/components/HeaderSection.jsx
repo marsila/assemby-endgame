@@ -1,7 +1,7 @@
 import StatusSection from "./StatusSection";
 
 export function HeaderSection(props) {
-  const { winGame, endGame } = props;
+  const { winGame, endGame, savedLanguages } = props;
   
   return (
     <div className="header-section">
@@ -12,9 +12,11 @@ export function HeaderSection(props) {
           from Assembly!
         </p>
       </div>
-      {endGame && (
+      {(endGame || winGame) && (
         <StatusSection 
           winGame={winGame}
+          endGame={endGame}
+          savedLanguages ={savedLanguages}
         />
       )}
     </div>

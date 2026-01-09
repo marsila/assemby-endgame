@@ -129,7 +129,6 @@ main {
 
 .result {
   width: 352px;
-  height: 58px;
   border: 1px dashed blue;
   padding: 6px 0px;
   background-color: #323232;
@@ -138,6 +137,7 @@ main {
   font-weight: 400;
   color: #f9f4da;
 }
+
 
 .lang-list {
   display: flex;
@@ -280,4 +280,12 @@ font-style: SemiBold;
 font-size: 18px;
 line-height: 100%;
 text-align: center;
+}
+ 
+.deleted-lang{
+  opacity: 0.3;  
+}
+.deleted-lang::before {
+  content: "💀"; /* Must be in quotes */  
+  opacity: 1 !important; /* Forces the skull to be visible even if chip is faded */
 }

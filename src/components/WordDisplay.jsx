@@ -1,5 +1,5 @@
 export default function WordDisply(props){
-    const {currentWord, guessedLetters} = props;
+    const {currentWord, guessedLetters}= props;
      
     return(
         <div className="word">

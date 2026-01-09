@@ -1,5 +1,5 @@
 export default function Keyboard(props) {
-  const { endGame, handleLetterClick, guessedLetters, currentWord } = props;
+  const { endGame, handleLetterClick, guessedLetters, currentWord ,newGame, winGame} = props;
   const letters = [
     "A","B", "C", "D","E", "F", "G", "H", "I","J","K","L", "M",
     "N", "O",  "P", "Q", "R", "S", "T", "U", "V","W", "X", "Y","Z"];
@@ -9,16 +9,16 @@ export default function Keyboard(props) {
       <div className="keyboard">
         {letters.map((letter, index) => {
           const isGuessed = guessedLetters.some(guessed => guessed.toUpperCase() === letter.toUpperCase());
-          console.log(isGuessed);
+          //console.log(isGuessed);
           
           const isCorrect = isGuessed && currentWord.toUpperCase().includes(letter.toUpperCase());
-          console.log(isCorrect);
+          //console.log(isCorrect);
           
           const isWrong = isGuessed && !currentWord.toUpperCase().includes(letter.toUpperCase());
-          console.log(isWrong);
+          //console.log(isWrong);
           
           const className = isCorrect? "key-correct" : isWrong? 'key-wrong' : 'key-default';
-          console.log(className);
+          //console.log(className);
           
           return (
             <button
@@ -34,7 +34,7 @@ export default function Keyboard(props) {
         })}
       </div>
       <div className="new-game">
-        {endGame && <button id="new-game">New Game</button>}
+        {(endGame || winGame) && <button id="new-game" onClick={newGame}>New Game</button>}
       </div>
     </>
   );
