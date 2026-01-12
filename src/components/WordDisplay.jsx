@@ -11,7 +11,7 @@ export default function WordDisply(props){
                     key={index}
                     id={letter}
                 >
-                 {isGuessed ? letter : ' '}   
+                 {isGuessed ? letter.toUpperCase() : ' '}   
                 </span>
                 )
                                 

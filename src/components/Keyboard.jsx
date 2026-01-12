@@ -1,5 +1,5 @@
 export default function Keyboard(props) {
-  const { endGame, handleLetterClick, guessedLetters, currentWord ,newGame, winGame} = props;
+  const { endGame, handleLetterClick, guessedLetters, currentWord ,newGame, winGame, buttonRef} = props;
   const letters = [
     "A","B", "C", "D","E", "F", "G", "H", "I","J","K","L", "M",
     "N", "O",  "P", "Q", "R", "S", "T", "U", "V","W", "X", "Y","Z"];
@@ -34,7 +34,13 @@ export default function Keyboard(props) {
         })}
       </div>
       <div className="new-game">
-        {(endGame || winGame) && <button id="new-game" onClick={newGame}>New Game</button>}
+        {(endGame || winGame) && <button 
+                id="new-game" 
+                onClick={newGame}
+                ref={buttonRef}
+            >
+                New Game
+            </button>}
       </div>
     </>
   );

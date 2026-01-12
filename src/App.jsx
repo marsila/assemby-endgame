@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { HeaderSection } from "./components/HeaderSection";
 import Keyboard from "./components/Keyboard";
 import LanguagesList from "./components/LanguagesList";
@@ -30,6 +30,10 @@ function App() {
   ];
 
   const [guessedLetters, setGuessedLetters] = useState([]);
+
+  const buttonRef = useRef(null);
+
+  
   function generateWord(words) {
     const randomIndex = Math.floor(Math.random() * words.length);
     return words[randomIndex];
@@ -56,32 +60,21 @@ function App() {
   ).length;
 
 
-  const savedLanguages = _INTIAL_LANGUAGES_LIST.slice(wrongGuessCount);
-  console.log("wrongCount", wrongGuessCount);
-
-  //console.log("savedlang", savedLanguages);
+  const savedLanguages = _INTIAL_LANGUAGES_LIST.slice(wrongGuessCount);  
 
   const endGame = wrongGuessCount >= _INTIAL_LANGUAGES_LIST.length -1;
 
-  console.log('currwnt word',currentWord);
-  
-
   const winGame = currentWord.split('').every(letter => guessedLetters.includes(letter));
-  console.log('win game',winGame);
   
-
+  useEffect(()=> {
+    winGame && buttonRef.current.focus();
+  },[winGame]);
 
   const handleLetterClick = (e) => {
+    if (winGame || endGame) return; // Stop clicks if game is over
     const letter = e.currentTarget.value;
-    console.log('savedLanguages.length', savedLanguages.length);
-    if (letter && !guessedLetters.includes(letter)) {
-      //console.log(letter);
-      setGuessedLetters((prev) => [...prev, letter]);
-      //console.log(`gussedLetters = ${guessedLetters}`);
-    }
-
+    (letter && !guessedLetters.includes(letter)) && setGuessedLetters((prev) => [...prev, letter]);
   };
-
 
   const newGame = () => {
     setCurrentWord(generateWord(words));
@@ -111,6 +104,7 @@ function App() {
         guessedLetters={guessedLetters}
         currentWord={currentWord}
         newGame ={newGame}
+        buttonRef={buttonRef}
       />
     </main>
   );

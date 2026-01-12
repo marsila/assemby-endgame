@@ -5,7 +5,7 @@ export default function StausSection(props) {
     backgroundColor: winGame ? "#10a95b" : "#BA2A2A",
   };
   return (
-    <div className="result" style={statuaStyles}>
+    <div className="result" style={statuaStyles} role="status">
       {winGame ? (
         <> Well done! 🎉 You Win! <br /> You Saved {savedLanguages.map((lang,index)=> (<span key={index}>{`${lang}, `}</span>))}</>
       ) : (
